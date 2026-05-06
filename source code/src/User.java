@@ -92,4 +92,45 @@ public class User {
         }
         return false;
     }
+    
+ // ---- Gamification Methods ----
+
+// Add XP when user saves money
+public void addXP(int points) {
+    xpPoints += points;
+    System.out.println("+" + points + " XP earned!");
+
+    checkBadge(); // update badge automatically
+}
+
+// Update streak (call daily)
+public void updateStreak(boolean savedToday) {
+    if (savedToday) {
+        streakDays++;
+        System.out.println("🔥 Streak: " + streakDays + " days");
+        addXP(10); // reward streak
+    } else {
+        streakDays = 0;
+        System.out.println("❌ Streak reset!");
+    }
+}
+
+// Simple badge system
+public void checkBadge() {
+    if (xpPoints >= 500) {
+        badge = "💎 Money Master";
+    } else if (xpPoints >= 200) {
+        badge = "🔥 Smart Saver";
+    } else if (xpPoints >= 50) {
+        badge = "🌱 Saver Rookie";
+    }
+}
+
+// Show gamification status
+public void showGamification() {
+    System.out.println("\n=== GAMIFICATION STATUS ===");
+    System.out.println("XP Points: " + xpPoints);
+    System.out.println("Streak Days: " + streakDays);
+    System.out.println("Badge: " + badge);
+}
 }

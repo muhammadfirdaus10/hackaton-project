@@ -11,7 +11,7 @@ public class LoginManager {
 
     public static void signUp() {
 
-        input.nextLine();
+        //input.nextLine();
 
         java.lang.System.out.println("\n========== SIGN UP ==========");
 
@@ -29,8 +29,13 @@ public class LoginManager {
         java.lang.System.out.print("Enter monthly income: RM ");
         double monthlyIncome = input.nextDouble();
 
-        if (monthlyIncome <= 0) {
-            java.lang.System.out.println("Monthly income must be more than RM0.");
+        if (monthlyIncome < 20) {
+            java.lang.System.out.println("Monthly income must be more than RM20.00");
+            while(monthlyIncome <= 0){
+                java.lang.System.out.println("Account is not created as the monthly income must be more than RM20.00");
+                java.lang.System.out.print("Enter monthly income: RM ");
+                monthlyIncome = input.nextDouble();
+            }
             return;
         }
 

@@ -73,8 +73,7 @@ public class AutoSave {
             return;
         }
 
-        double amount =
-                user.monthlyIncome * user.autoSavePercentage / 100;
+        double amount = user.balance * user.autoSavePercentage / 100;
 
         if (amount <= user.balance) {
 

@@ -66,5 +66,6 @@ public class App {
             }
 
         } while(choice != 8);
+        input.close();
     }
 }
